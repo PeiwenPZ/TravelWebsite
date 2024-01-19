@@ -111,7 +111,8 @@ tourSchema.pre('save', function (next) {
 // });
 
 //Query Middleware - hide secret tour from get
-tourSchema.pre(/^find/, function (next) {  //regular exp applied the middleware to all the find querry
+tourSchema.pre(/^find/, function (next) {
+  //regular exp applied the middleware to all the find querry
   this.find({ secretTour: { $ne: true } });
   next();
 });
